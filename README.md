@@ -1,15 +1,7 @@
 # Prototype to process boxcar data
 
 
-
-Reference: [BoxCar acquisition method enables single-shot proteomics
-at a depth of 10,000 proteins i
-100minutes](https://www.nature.com/articles/s41592-018-0003-5)
-
-
-
-
-Load required packages and functions.
+Load required packages and functions. 
 
 
 ```r
@@ -35,7 +27,7 @@ x
 ##  Number of spectra: 13572 
 ##  MSn retention times: 0:0 - 70:0 minutes
 ## - - - Processing information - - -
-## Data loaded [Tue Mar 24 20:03:59 2020] 
+## Data loaded [Tue Mar 24 20:10:53 2020] 
 ##  MSnbase version: 2.13.3 
 ## - - - Meta data  - - -
 ## phenoData
@@ -118,10 +110,12 @@ writeMSData(res, "boxcar_processed.mzML")
 
 See also `sp_plot`,  `bc_plot` and `bc_plotly` for visualisation. 
 
-The figure below shows a slice of a combined spectrum with the
-different boxcar spectra in different colours.
 
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~lgatto/4.embed"></iframe>
+
+[This figure](https://plotly.com/~lgatto/4/#/) shows a slice of a
+combined spectrum with the different boxcar spectra in different
+colours.
+
 
 
 
@@ -173,3 +167,13 @@ sessionInfo()
 ## [43] stringi_1.4.6         doParallel_1.0.15     munsell_0.5.0        
 ## [46] vsn_3.54.0            crayon_1.3.4          affyio_1.56.0
 ```
+
+References:
+
+- [BoxCar acquisition method enables single-shot proteomics at a depth
+  of 10,000 proteins in 100
+  minutes](https://www.nature.com/articles/s41592-018-0003-5).
+- [`MSnbase` - an R/Bioconductor package for isobaric tagged mass
+  spectrometry data visualization, processing and
+  quantitation](https://pubmed.ncbi.nlm.nih.gov/22113085/).
+- `MSnbase` [webpage](http://lgatto.github.io/MSnbase/).
