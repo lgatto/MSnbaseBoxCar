@@ -36,7 +36,9 @@ bc_plot <- function(x) {
                  alpha = 0.2,
                  colour = "black",
                  size = 0.1,
-                 fill = "grey")
+                 fill = "grey") +
+        xlab(element_text("M/Z")) +
+        ylab(element_text("Intensity"))
 }
 
 ##' @rdname bc_plot
