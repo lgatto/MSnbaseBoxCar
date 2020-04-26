@@ -12,7 +12,7 @@ jobs:
         run: |
           install.packages(c("remotes", "rcmdcheck", "BiocManager"))
           remotes::install_deps(dependencies = TRUE)
-	  BiocManager::install(c("MSnbase", "BiocStyle", "S4Vectors"))
+          BiocManager::install(c("MSnbase", "BiocStyle", "S4Vectors"))
         shell: Rscript {0}
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
