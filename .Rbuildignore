@@ -1,2 +1,3 @@
 inst/extdata/boxcar_full.mzML
 ^\.github$
+.travis.yml
