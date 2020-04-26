@@ -1,17 +1,3 @@
-## code for BoxCar processing and visualisation on MSnExp data
-
-sp_plot <- function(x) {
-    d <- as(x, "data.frame")
-    if (centroided(x))
-        p <- ggplot(d, aes(x = mz, xend = mz,
-                           y = 0, yend = i)) +
-            geom_segment()
-    else
-        p <- ggplot(d, aes(x = mz, y = i)) +
-            geom_line()
-    p
-}
-
 ##' This function extracts the box start and end positions for all
 ##' spectra in an `MSnExp` object. The first box coordinates are not
 ##' returned, as they corresond to either the full spectrum (for
@@ -19,17 +5,22 @@ sp_plot <- function(x) {
 ##' positions for a boxcar MS1 spectrum.
 ##'
 ##' @title Extract box positions
+##' 
 ##' @param x An `MSnExp` object
+##' 
 ##' @param offset `numeric(1)` defining the offset to remove/add to
 ##'     the start/end of the box. Default is `0`, i.e. to leave them
 ##'     as is.
+##' 
 ##' @param fcol The name of the feature variable containing the box
 ##'     data. Default is `filterString` and is expected to be
 ##'     `"FTMS + p NSI SIM msx ms [start_1-end_1, start_2-end_2, ..., start_n-end_n]"`
 ##'     where `start` and `end` are box start and end positions.
-##' @md
+##' 
 ##' @return A list of data frames of length `length(x)` with start and
 ##'     end box values.
+##'
+##' @export 
 bc_boxes <- function(x,
                      offset = 0L,
                      fcol = "filterString") {
@@ -52,81 +43,24 @@ bc_boxes <- function(x,
            })}
 
 
-##' Takes an experiment with a set of boxcar spectra and plots them as
-##' a single spectrum, colouring the peaks based on their origin.
-##'
-##' @title Overlay boxcar spectra
-##' @param x An `MSnExp` object containing a set of boxcar spectra.
-##' @param ... Additional arguments passed to `plot`.
-##' @return Used for its side effects.
-##' @md
-##' @author Laurent Gatto
-## bc_plot <- function(x, j, ...) {
-##     stopifnot(inherits(x, "MSnExp"))
-##     bx <- bc_boxes(x)
-##     stopifnot(all(sapply(bx, nrow) > 0))
-##     d <- as(x, "data.frame")
-##     d$sp <- as.numeric(as.factor(d$rt))
-##     mx <- max(d$i)
-##     plot(d[, c("mz", "i")], type = "h", ylim = c(0, mx), col = NA, ...)
-##     grid()
-##     segments(d$mz, rep(0, nrow(d)),
-##              d$mz, d$i,
-##              col = d$sp)
-## }
-
-
-##' Takes an experiment with a set of boxcar spectra and plots them as
-##' a single spectrum, colouring the peaks based on their origin.
-##'
-##' @title Overlay boxcar spectra
-##' @param x An `MSnExp` object containing a set of boxcar spectra.
-##' @return Used for its side effects. Invisibly returns a `ggplot` or
-##'     `plotly` object.
-##' @md
-##' @author Laurent Gatto
-##' @aliases bc_plotly
-bc_plot <- function(x) {
-    stopifnot(inherits(x, "MSnExp"))
-    d <- as(x, "data.frame")
-    d$rt <- factor(d$rt)
-    p <- ggplot(d, aes(x = mz, xend = mz,
-                       y = 0, yend = i,
-                       colour = rt)) +
-        geom_segment(show.legend = FALSE)
-    bx <- bc_boxes(x)
-    bx <- do.call("rbind", bx)
-    bx <- bx[order(bx[, 1]), ]
-    p + annotate("rect",
-                 xmin = bx[, 1],
-                 xmax = bx[, 2],
-                 ymin = rep(0, nrow(bx)),
-                 ymax = rep(max(d$i) * 1.01, nrow(bx)),
-                 alpha = 0.2,
-                 colour = "black",
-                 size = 0.1,
-                 fill = "grey")
-}
-
-##' @rdname bc_plot
-bc_plotly <- function(x) {
-    p <- bc_plot(x)
-    plotly::ggplotly(p)
-}
-
 ##' This function uses the identification of boxcar boxes by the
 ##' `bc_boxes` function to determine if the spectrum is indeed a
 ##' boxcar spetrum.
 ##'
 ##' @title Identifies boxcar spectra
+##' 
 ##' @param x An `MSnExp` object containing a set of boxcar spectra.
+##' 
 ##' @param fcol The name of the feature variable containing the box
 ##'     data. Default is `filterString`. See the `bc_boxes` function
 ##'     for details.
+##' 
 ##' @return A `logical` of length `length(x)` indicating of a spectrum
 ##'     is a boxcar spectrum.
-##' @md
+##' 
 ##' @author Laurent Gatto
+##'
+##' @export
 bc_is_boxcar <- function(x, fcol = "filterString") {
     stopifnot(inherits(x, "MSnExp"))
     stopifnot(fcol %in% fvarLabels(x))
@@ -147,12 +81,18 @@ bc_is_boxcar <- function(x, fcol = "filterString") {
 ##' object
 ##' 
 ##' @title Define boxcar groups
+##' 
 ##' @param x An `MSnExp` object containing a set of boxcar spectra.
+##' 
 ##' @param fcol The name of the feature variable containing the box
 ##'     data. Default is `filterString`. See the `bc_boxes` function
 ##'     for details.
+##' 
 ##' @return A `numeric` of length `length(x)` with the boxcar groups.
+##' 
 ##' @author Laurent Gatto
+##'
+##' @export
 bc_groups <- function(x, fcol = "filterString") {
     bx <- bc_is_boxcar(x, fcol = fcol)
     if (all(bx))
@@ -167,18 +107,42 @@ bc_groups <- function(x, fcol = "filterString") {
 }
 
 
+##' A function to be passed to `combineSpectra` to combine boxcar
+##' spectra. This function simply sums intensities and is provided as
+##' an example.
+##'
+##' @title Combine boxcar spectra
+##' 
+##' @param x A list of spectra
+##'
+##' @export
+boxcarCombine <- function(x)
+    meanMzInts(x, intensityFun = base::sum, mzd = 0)
+
+
+## Cast back into an MSnExp
+.as_MSnExp <- function(x) {
+    res <- as(x, "MSnExp")
+    MSnbase:::logging(res, "boxcar processed")
+}
+
 ##' Takes an MS experiment with boxcar spectra and sets any peak
 ##' outside of the boxes (+/- an optional offset) to zero. If the
 ##' spectrum is a fill, non-boxcar spectrum, it is left as is.
 ##'
 ##' @title Set peaks outside of boxes to zero
+##' 
 ##' @param x x An `MSnExp` object containing a set of boxcar spectra.
+##' 
 ##' @param offset `numeric(1)` defining the offset to remove/add to
 ##'     the start/end of the box. Default is `0`, i.e. to leave them
 ##'     as is.
+##' 
 ##' @return An object of class `Spectra` with processed spectra.
-##' @md
+##' 
 ##' @author Laurent Gatto
+##'
+##' @export
 bc_zero_out_box <- function(x, offset = 0L) {
     stopifnot(inherits(x, "MSnExp"))
     bx <- bc_boxes(x, offset)
@@ -210,22 +174,6 @@ bc_zero_out_box <- function(x, offset = 0L) {
                                         polarity = .polarity[[i]])
                 })
     names(l) <- featureNames(x)
-    Spectra(l, elementMetadata = DataFrame(fData(x)))
-}
-
-
-##' A function to be passed to `combineSpectra` to combine boxcar
-##' spectra.
-##'
-##' @title Combine boxcar spectra
-##' @param x A list of spectra
-boxcarCombine <- function(x)
-    meanMzInts(x, intensityFun = base::sum, mzd = 0)
-
-
-## Cast back into an MSnExp
-.as_MSnExp <- function(x, fn) {
-    res <- as(x, "MSnExp")
-    res@processingData@files <- fn
-    MSnbase:::logging(res, "boxcar processed")
+    res <- Spectra(l, elementMetadata = DataFrame(fData(x)))
+    .as_MSnExp(res, "BoxCar")
 }

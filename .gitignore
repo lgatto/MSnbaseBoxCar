@@ -1,3 +1,5 @@
 boxcar.mzML
 cache
 boxcar_processed.mzML
+inst/extdata/boxcar.mzML
+inst/extdata/boxcar_full.mzML
