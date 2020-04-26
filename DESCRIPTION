@@ -8,16 +8,22 @@ Authors@R:
            comment = c(ORCID = "0000-0002-1520-2268"))
 Description: A prototype package to process BoxCar mass spectrometry
              data using the MSnbase infrastructure.
-Depends: R (>= 3.5.0), MSnbase
-Imports: ggplot2
-Suggests: knitr, BiocStyle, ggplot2
+Depends:
+    R (>= 3.5.0),
+    MSnbase
+Imports:
+   ggplot2
+Suggests:
+   plotly,
+   knitr,
+   rmarkdown,
+   BiocStyle
 License: Artistic-2.0
 LazyData: yes
 Encoding: UTF-8
 VignetteBuilder: knitr
 BugReports: https://github.com/lgatto/MSnbaseBoxCar/issues
-URL: https://github.com/RforMassSpectrometry/MSnbaseBoxCar
-biocViews: Infrastructure, Proteomics, MassSpectrometry, Metabolomics
+URL: https://github.com/lgatto/MSnbaseBoxCar
 Roxygen: list(markdown=TRUE)
 RoxygenNote: 7.1.0
 

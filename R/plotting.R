@@ -17,6 +17,7 @@
 ##' @export
 bc_plot <- function(x) {
     stopifnot(inherits(x, "MSnExp"))
+    i <- mz <- NULL
     d <- as(x, "data.frame")
     d$rt <- factor(d$rt)
     p <- ggplot(d, aes(x = mz, xend = mz,
@@ -41,6 +42,7 @@ bc_plot <- function(x) {
 ##'
 ##' @export
 bc_plotly <- function(x) {
+    stopifnot(require("plotly"))
     p <- bc_plot(x)
     plotly::ggplotly(p)
 }

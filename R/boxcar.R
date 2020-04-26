@@ -20,7 +20,9 @@
 ##' @return A list of data frames of length `length(x)` with start and
 ##'     end box values.
 ##'
-##' @export 
+##' @export
+##'
+##' @import MSnbase
 bc_boxes <- function(x,
                      offset = 0L,
                      fcol = "filterString") {
@@ -142,6 +144,8 @@ boxcarCombine <- function(x)
 ##' 
 ##' @author Laurent Gatto
 ##'
+##' @importFrom S4Vectors DataFrame
+##'
 ##' @export
 bc_zero_out_box <- function(x, offset = 0L) {
     stopifnot(inherits(x, "MSnExp"))
@@ -175,5 +179,5 @@ bc_zero_out_box <- function(x, offset = 0L) {
                 })
     names(l) <- featureNames(x)
     res <- Spectra(l, elementMetadata = DataFrame(fData(x)))
-    .as_MSnExp(res, "BoxCar")
+    .as_MSnExp(res)
 }
