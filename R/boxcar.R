@@ -124,13 +124,6 @@ bc_groups <- function(x, fcol = "filterString") {
 boxcarCombine <- function(x)
     meanMzInts(x, intensityFun = base::sum, mzd = 0)
 
-
-## Cast back into an MSnExp
-.as_MSnExp <- function(x) {
-    res <- as(x, "MSnExp")
-    MSnbase:::logging(res, "boxcar processed")
-}
-
 ##' Takes an MS experiment with boxcar spectra and sets any peak
 ##' outside of the boxes (+/- an optional offset) to zero. If the
 ##' spectrum is a fill, non-boxcar spectrum, it is left as is. See the
@@ -182,6 +175,7 @@ bc_zero_out_box <- function(x, offset = 0L) {
                                         polarity = .polarity[[i]])
                 })
     names(l) <- featureNames(x)
-    res <- Spectra(l, elementMetadata = DataFrame(fData(x)))
-    .as_MSnExp(res)
+    ans <- Spectra(l, elementMetadata = DataFrame(fData(x)))
+    ans <- as(ans, "MSnExp")
+    MSnbase:::logging(ans, "BoxCar processed")
 }

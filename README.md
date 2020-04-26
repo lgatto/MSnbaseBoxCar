@@ -1,8 +1,7 @@
-[![R build status](https://github.com/lgatto/MSnbaseBoxCar/workflows/R-CMD-check/badge.svg)](https://github.com/lgatto/MSnbaseBocCar/actions)
-
-[![R build status](https://github.com/lgatto/MSnbaseBoxCar/workflows/pkgdown/badge.svg)](https://github.com/lgatto/MSnbaseBoxCar/actions)
-
 # A small prototype to process boxcar data
+
+[![build status](https://travis-ci.org/lgatto/MSnbaseBoxCar.svg?branch=master)](https://travis-ci.org/lgatto/MSnbaseBoxCar)
+[![license](https://img.shields.io/badge/license-Artistic--2.0-brightgreen.svg)](https://opensource.org/licenses/Artistic-2.0)
 
 This package describes a simple prototype to process
 [BoxCar](https://www.nature.com/articles/s41592-018-0003-5) data using

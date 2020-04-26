@@ -29,7 +29,9 @@ library("ggplot2")
 Read a small dataset composed of 16 MS1 spectra as an `MSnExp`:
 
 ```{r data}
-f <- dir(system.file("extdata", package = "MSnbaseBoxCar"), full.names = TRUE)
+f <- dir(system.file("extdata", package = "MSnbaseBoxCar"),
+         pattern = "boxcar.mzML",
+         full.names = TRUE)
 basename(f)
 x <- readMSData(f, mode = "onDisk")
 x
@@ -67,7 +69,7 @@ fData(xbc)$groups
 
 ```{r bc_plot1, fig.cap = "Beginning of the first adjacent BoxCar segments."}
 bc_plot(xbc[1:3]) +
-    xlim(299, 455)
+    xlim(440, 510)
 ```
 
 # Combine BoxCar spectra 
@@ -76,15 +78,17 @@ Remove any peaks outside of the BoxCar segments.
 
 ```{r bc_zero_out_box}
 xbc <- bc_zero_out_box(xbc, offset = 0.5)
+xbc
 ```
 
 ```{r bc_plot2, fig.cap = "Peaks outside of the BoxCar segments have been removed."}
 bc_plot(xbc[1:3]) +
-    xlim(299, 455)
+    xlim(440, 510)
 ```
 
 Combine BoxCar spectra to reconstitute the full scan and coerce result
-back to an `MSnExp` object. 
+back to an `MSnExp` object containing 4 spectra.
+
 
 ```{r combineSpectra}
 res <- combineSpectra(xbc,
@@ -93,9 +97,9 @@ res <- combineSpectra(xbc,
 res
 ```
 
-The above steps can also be piped into a single operation.
+The above steps can also be piped into a single command.
 
-```{r pipe, eval = FALSE}
+```{r pipe, eval=FALSE}
 library("magrittr")
 res <- xbc %>%
     bc_zero_out_box(offset = 0.5) %>%
@@ -109,11 +113,9 @@ res
 plot(res[[1]])
 ```
 
-We have `r length(res)` spectra after processing.
-
 The processed data can also be written to a new mzML file.
 
-```{r write, eval = FALSE}
+```{r write, eval=FALSE}
 writeMSData(res, "boxcar_processed.mzML")
 ```
 
