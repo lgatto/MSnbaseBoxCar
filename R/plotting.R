@@ -33,7 +33,7 @@ bc_plot <- function(x) {
                  xmax = bx[, 2],
                  ymin = rep(0, nrow(bx)),
                  ymax = rep(max(d$i) * 1.01, nrow(bx)),
-                 alpha = 0.2,
+                 alpha = 0.4,
                  colour = "black",
                  size = 0.1,
                  fill = "grey") +
