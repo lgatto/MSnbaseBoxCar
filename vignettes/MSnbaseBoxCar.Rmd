@@ -23,7 +23,7 @@ Load required packages and functions.
 ```{r, message = FALSE}
 library("MSnbase")
 library("MSnbaseBoxCar")
-library("magrittr")
+library("ggplot2")
 ```
 
 Read a small dataset in as an `MSnExp`:
@@ -95,6 +95,7 @@ res
 The above steps can also be piped into a single operation.
 
 ```{r, cache = TRUE}
+library("magrittr")
 res <- xbc %>%
     bc_zero_out_box(offset = 0.5) %>%
     combineSpectra(fcol = "groups",

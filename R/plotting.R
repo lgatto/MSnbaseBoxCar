@@ -12,6 +12,8 @@
 ##' 
 ##' @aliases bc_plotly
 ##'
+##' @import ggplot2
+##' 
 ##' @export
 bc_plot <- function(x) {
     stopifnot(inherits(x, "MSnExp"))

@@ -9,7 +9,8 @@ Authors@R:
 Description: A prototype package to process BoxCar mass spectrometry
              data using the MSnbase infrastructure.
 Depends: R (>= 3.5.0), MSnbase
-Suggests: magrittr
+Imports: ggplot2
+Suggests: knitr, BiocStyle, ggplot2
 License: Artistic-2.0
 LazyData: yes
 Encoding: UTF-8
