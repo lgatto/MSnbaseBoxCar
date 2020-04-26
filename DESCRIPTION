@@ -12,7 +12,8 @@ Depends:
     R (>= 3.5.0),
     MSnbase
 Imports:
-   ggplot2
+   ggplot2,
+   S4Vectors
 Suggests:
    plotly,
    knitr,

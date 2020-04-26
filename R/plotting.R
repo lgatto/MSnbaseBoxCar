@@ -1,5 +1,6 @@
 ##' Takes an experiment with a set of boxcar spectra and plots them as
-##' a single spectrum, colouring the peaks based on their origin.
+##' a single spectrum, colouring the peaks based on their origin. See
+##' the *MSnbaseBoxCar* vignette for example code.
 ##'
 ##' @title Overlay boxcar spectra
 ##' 
@@ -17,8 +18,8 @@
 ##' @export
 bc_plot <- function(x) {
     stopifnot(inherits(x, "MSnExp"))
-    i <- mz <- NULL
-    d <- as(x, "data.frame")
+    i <- mz <- rt <- NULL
+    d <- as(x, "data.frame")    
     d$rt <- factor(d$rt)
     p <- ggplot(d, aes(x = mz, xend = mz,
                        y = 0, yend = i,
@@ -42,7 +43,7 @@ bc_plot <- function(x) {
 ##'
 ##' @export
 bc_plotly <- function(x) {
-    stopifnot(require("plotly"))
+    stopifnot(requireNamespace("plotly"))
     p <- bc_plot(x)
     plotly::ggplotly(p)
 }

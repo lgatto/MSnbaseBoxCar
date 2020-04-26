@@ -1,3 +1,7 @@
+[![R build status](https://github.com/lgatto/MSnbaseBoxCar/workflows/R-CMD-check/badge.svg)](https://github.com/lgatto/MSnbaseBocCar/actions)
+
+[![R build status](https://github.com/lgatto/MSnbaseBoxCar/workflows/pkgdown/badge.svg)](https://github.com/lgatto/MSnbaseBoxCar/actions)
+
 # A small prototype to process boxcar data
 
 This package describes a simple prototype to process

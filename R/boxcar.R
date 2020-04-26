@@ -2,7 +2,8 @@
 ##' spectra in an `MSnExp` object. The first box coordinates are not
 ##' returned, as they corresond to either the full spectrum (for
 ##' non-boxcar MS1 spectra) or the first start and last end box
-##' positions for a boxcar MS1 spectrum.
+##' positions for a boxcar MS1 spectrum. See the *MSnbaseBoxCar*
+##' vignette for example code.
 ##'
 ##' @title Extract box positions
 ##' 
@@ -47,7 +48,7 @@ bc_boxes <- function(x,
 
 ##' This function uses the identification of boxcar boxes by the
 ##' `bc_boxes` function to determine if the spectrum is indeed a
-##' boxcar spetrum.
+##' boxcar spetrum. See the *MSnbaseBoxCar* vignette for example code.
 ##'
 ##' @title Identifies boxcar spectra
 ##' 
@@ -70,6 +71,8 @@ bc_is_boxcar <- function(x, fcol = "filterString") {
     as.logical(sapply(bx, nrow))
 }
 
+
+
 ##' This function takes an `MSnExp` as input and defines the boxcar
 ##' groups, i.e. the set of boxcar spectra that match the same full
 ##' MS1 spectrum. Grouping for full (non-boxcar) spectra are set the
@@ -77,10 +80,8 @@ bc_is_boxcar <- function(x, fcol = "filterString") {
 ##' required to define the groups, and it is assumed that boxcar
 ##' spectra following a full MS1 spectrum below to the same group. The
 ##' output of this function is best used to create a new feature
-##' variable column used when merging boxcar spectra.
-##'
-##' TODO: make this an endomorphic function that return an MSnExp
-##' object
+##' variable column used when merging boxcar spectra. See the
+##' *MSnbaseBoxCar* vignette for example code.
 ##' 
 ##' @title Define boxcar groups
 ##' 
@@ -96,6 +97,8 @@ bc_is_boxcar <- function(x, fcol = "filterString") {
 ##'
 ##' @export
 bc_groups <- function(x, fcol = "filterString") {
+    ## TODO: make this an endomorphic function that return an MSnExp
+    ## object    
     bx <- bc_is_boxcar(x, fcol = fcol)
     if (all(bx))
         stop("No non-boxcar spectra found. Can't assign boxcar groups.")
@@ -111,7 +114,7 @@ bc_groups <- function(x, fcol = "filterString") {
 
 ##' A function to be passed to `combineSpectra` to combine boxcar
 ##' spectra. This function simply sums intensities and is provided as
-##' an example.
+##' an example. See the *MSnbaseBoxCar* vignette for example code.
 ##'
 ##' @title Combine boxcar spectra
 ##' 
@@ -130,7 +133,8 @@ boxcarCombine <- function(x)
 
 ##' Takes an MS experiment with boxcar spectra and sets any peak
 ##' outside of the boxes (+/- an optional offset) to zero. If the
-##' spectrum is a fill, non-boxcar spectrum, it is left as is.
+##' spectrum is a fill, non-boxcar spectrum, it is left as is. See the
+##' *MSnbaseBoxCar* vignette for example code.
 ##'
 ##' @title Set peaks outside of boxes to zero
 ##' 
