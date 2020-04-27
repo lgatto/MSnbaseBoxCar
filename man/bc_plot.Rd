@@ -18,7 +18,8 @@ Used for its side effects. Invisibly returns a \code{ggplot} or
 }
 \description{
 Takes an experiment with a set of boxcar spectra and plots them as
-a single spectrum, colouring the peaks based on their origin.
+a single spectrum, colouring the peaks based on their origin. See
+the \emph{MSnbaseBoxCar} vignette for example code.
 }
 \author{
 Laurent Gatto

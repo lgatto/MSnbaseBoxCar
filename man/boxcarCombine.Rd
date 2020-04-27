@@ -12,5 +12,5 @@ boxcarCombine(x)
 \description{
 A function to be passed to \code{combineSpectra} to combine boxcar
 spectra. This function simply sums intensities and is provided as
-an example.
+an example. See the \emph{MSnbaseBoxCar} vignette for example code.
 }

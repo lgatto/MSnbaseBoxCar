@@ -55,16 +55,16 @@ spectra and groups the latter:
 
 
 ```{r bc_groups}
-fData(x)$groups <- bc_groups(x)
-fData(x)$groups
+x <- bc_groups(x)
+fData(x)$bc_groups
 ```
 # Keep only BoxCar spectra
 
 The next filter BoxCar spectra, as defined above.
 
 ```{r bc_is_boxcar}
-xbc <- x[bc_is_boxcar(x)]
-fData(xbc)$groups
+xbc <- filterBoxCar(x)
+fData(xbc)$bc_groups
 ```
 
 ```{r bc_plot1, fig.cap = "Beginning of the first adjacent BoxCar segments."}
@@ -92,7 +92,7 @@ back to an `MSnExp` object containing 4 spectra.
 
 ```{r combineSpectra}
 res <- combineSpectra(xbc,
-                      fcol = "groups",
+                      fcol = "bc_groups",
                       method = boxcarCombine)
 res
 ```

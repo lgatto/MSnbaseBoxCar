@@ -27,5 +27,6 @@ This function extracts the box start and end positions for all
 spectra in an \code{MSnExp} object. The first box coordinates are not
 returned, as they corresond to either the full spectrum (for
 non-boxcar MS1 spectra) or the first start and last end box
-positions for a boxcar MS1 spectrum.
+positions for a boxcar MS1 spectrum. See the \emph{MSnbaseBoxCar}
+vignette for example code.
 }

@@ -20,7 +20,7 @@ is a boxcar spectrum.
 \description{
 This function uses the identification of boxcar boxes by the
 \code{bc_boxes} function to determine if the spectrum is indeed a
-boxcar spetrum.
+boxcar spetrum. See the \emph{MSnbaseBoxCar} vignette for example code.
 }
 \author{
 Laurent Gatto

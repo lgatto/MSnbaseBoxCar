@@ -19,7 +19,8 @@ An object of class \code{Spectra} with processed spectra.
 \description{
 Takes an MS experiment with boxcar spectra and sets any peak
 outside of the boxes (+/- an optional offset) to zero. If the
-spectrum is a fill, non-boxcar spectrum, it is left as is.
+spectrum is a fill, non-boxcar spectrum, it is left as is. See the
+\emph{MSnbaseBoxCar} vignette for example code.
 }
 \author{
 Laurent Gatto

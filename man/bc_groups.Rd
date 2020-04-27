@@ -4,14 +4,17 @@
 \alias{bc_groups}
 \title{Define boxcar groups}
 \usage{
-bc_groups(x, fcol = "filterString")
+bc_groups(x, bc_groups = "bc_groups", fcol = "filterString")
 }
 \arguments{
 \item{x}{An \code{MSnExp} object containing a set of boxcar spectra.}
 
-\item{fcol}{The name of the feature variable containing the box
-data. Default is \code{filterString}. See the \code{bc_boxes} function
-for details.}
+\item{bc_groups}{\code{character(1)} indicating the feature variable in
+which to store the BoxCar groups. Default is \code{bc_groups}.}
+
+\item{fcol}{\code{character(1)} indicating the name of the feature
+variable containing the box data. Default is
+\code{filterString}. See the \code{bc_boxes()} function for details.}
 }
 \value{
 A \code{numeric} of length \code{length(x)} with the boxcar groups.
@@ -24,11 +27,8 @@ MS1 spectrum. Grouping for full (non-boxcar) spectra are set the
 required to define the groups, and it is assumed that boxcar
 spectra following a full MS1 spectrum below to the same group. The
 output of this function is best used to create a new feature
-variable column used when merging boxcar spectra.
-}
-\details{
-TODO: make this an endomorphic function that return an MSnExp
-object
+variable column used when merging boxcar spectra. See the
+\emph{MSnbaseBoxCar} vignette for example code.
 }
 \author{
 Laurent Gatto
