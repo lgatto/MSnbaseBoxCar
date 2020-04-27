@@ -47,7 +47,8 @@ NA. Note that the presence of full (non-boxcar) spectra is
 required to define the groups, and it is assumed that boxcar
 spectra following a full MS1 spectrum below to the same group. The
 output of this function is best used to create a new feature
-variable column used when merging boxcar spectra." />
+variable column used when merging boxcar spectra. See the
+MSnbaseBoxCar vignette for example code." />
 
 
 
@@ -79,7 +80,7 @@ variable column used when merging boxcar spectra." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MSnbaseBoxCar</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -131,10 +132,11 @@ MS1 spectrum. Grouping for full (non-boxcar) spectra are set the
 required to define the groups, and it is assumed that boxcar
 spectra following a full MS1 spectrum below to the same group. The
 output of this function is best used to create a new feature
-variable column used when merging boxcar spectra.</p>
+variable column used when merging boxcar spectra. See the
+<em>MSnbaseBoxCar</em> vignette for example code.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bc_groups</span>(<span class='no'>x</span>, <span class='kw'>fcol</span> <span class='kw'>=</span> <span class='st'>"filterString"</span>)</pre>
+    <pre class="usage"><span class='fu'>bc_groups</span>(<span class='no'>x</span>, <span class='kw'>bc_groups</span> <span class='kw'>=</span> <span class='st'>"bc_groups"</span>, <span class='kw'>fcol</span> <span class='kw'>=</span> <span class='st'>"filterString"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,20 +146,21 @@ variable column used when merging boxcar spectra.</p>
       <td><p>An <code>MSnExp</code> object containing a set of boxcar spectra.</p></td>
     </tr>
     <tr>
+      <th>bc_groups</th>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> indicating the feature variable in
+which to store the BoxCar groups. Default is <code>bc_groups</code>.</p></td>
+    </tr>
+    <tr>
       <th>fcol</th>
-      <td><p>The name of the feature variable containing the box
-data. Default is <code>filterString</code>. See the <code>bc_boxes</code> function
-for details.</p></td>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> indicating the name of the feature
+variable containing the box data. Default is
+<code>filterString</code>. See the <code><a href='bc_boxes.html'>bc_boxes()</a></code> function for details.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code>numeric</code> of length <code><a href='https://rdrr.io/r/base/length.html'>length(x)</a></code> with the boxcar groups.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>TODO: make this an endomorphic function that return an MSnExp
-object</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
