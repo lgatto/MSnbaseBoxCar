@@ -97,20 +97,22 @@ res <- combineSpectra(xbc,
 res
 ```
 
+```{r plot, fig.cap = "Reconstructed full spectrum."}
+plot(res[[1]])
+```
+
+
 The above steps can also be piped into a single command.
 
 ```{r pipe, eval=FALSE}
 library("magrittr")
-res <- xbc %>%
+res <- x %>%
+    bc_groups() %>%
+    filterBoxCar() %>%    
     bc_zero_out_box(offset = 0.5) %>%
     combineSpectra(fcol = "groups",
                    method = boxcarCombine)
 
-res
-```
-
-```{r plot, fig.cap = "Reconstructed full spectrum."}
-plot(res[[1]])
 ```
 
 The processed data can also be written to a new mzML file.
