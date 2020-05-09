@@ -75,6 +75,12 @@
 <a href="#a-small-prototype-to-process-boxcar-data" class="anchor"></a>A small prototype to process boxcar data</h1></div>
 
 <p>This package describes a simple prototype to process <a href="https://www.nature.com/articles/s41592-018-0003-5">BoxCar</a> data using the <a href="http://lgatto.github.io/MSnbase/"><code>MSnbase</code></a> package. Is is meant as an illustration of how to use <code>MSnbase</code> to prototype and develop computational mass spectrometry methods and not to replace the reference <code>MaxQuant</code> implementation.</p>
+<p>To install the package and its dependencies:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span>(<span class="st">"BiocManager"</span>, <span class="kw">quietly</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BiocManager"</span>)
+
+<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"MSnbase"</span>)
+<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"lgatto/MSnbaseBoxCar"</span>)</pre></div>
 </div>
   </div>
 

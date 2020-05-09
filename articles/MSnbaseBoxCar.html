@@ -79,6 +79,10 @@
     </div>
 
     
+        <div class="abstract">
+      <p class="abstract">Abstract</p>
+      This package describes a simple prototype to process BoxCar data using the MSnbase package. Is is meant as an illustration of how to use <code>MSnbase</code> to prototype and develop computational mass spectrometry methods and not to replace the reference MaxQuant implementation.
+    </div>
     
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
@@ -113,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function() {
 ##  Number of spectra: 16 
 ##  MSn retention times: 0:0 - 0:5 minutes
 ## - - - Processing information - - -
-## Data loaded [Mon Apr 27 09:11:20 2020] 
-##  MSnbase version: 2.13.7 
+## Data loaded [Sat May  9 18:39:01 2020] 
+##  MSnbase version: 2.15.1 
 ## - - - Meta data  - - -
 ## phenoData
 ##   rowNames: boxcar.mzML
@@ -173,9 +177,9 @@ Beginning of the first adjacent BoxCar segments.
 ##  Number of spectra: 12 
 ##  MSn retention times: 0:0 - 0:5 minutes
 ## - - - Processing information - - -
-## Data converted from Spectra: Mon Apr 27 09:11:20 2020 
-## BoxCar processed [Mon Apr 27 09:11:20 2020] 
-##  MSnbase version: 2.13.7 
+## Data converted from Spectra: Sat May  9 18:39:01 2020 
+## BoxCar processed [Sat May  9 18:39:01 2020] 
+##  MSnbase version: 2.15.1 
 ## - - - Meta data  - - -
 ## phenoData
 ##   rowNames: 1
@@ -210,10 +214,10 @@ Peaks outside of the BoxCar segments have been removed.
 ##  Number of spectra: 4 
 ##  MSn retention times: 0:0 - 0:4 minutes
 ## - - - Processing information - - -
-## Data converted from Spectra: Mon Apr 27 09:11:20 2020 
-## BoxCar processed [Mon Apr 27 09:11:20 2020] 
-## Spectra combined based on feature variable 'bc_groups' [Mon Apr 27 09:11:21 2020] 
-##  MSnbase version: 2.13.7 
+## Data converted from Spectra: Sat May  9 18:39:01 2020 
+## BoxCar processed [Sat May  9 18:39:01 2020] 
+## Spectra combined based on feature variable 'bc_groups' [Sat May  9 18:39:02 2020] 
+##  MSnbase version: 2.15.1 
 ## - - - Meta data  - - -
 ## phenoData
 ##   rowNames: 1
@@ -260,7 +264,7 @@ Reconstructed full spectrum.
 <h1 class="hasAnchor">
 <a href="#session-information" class="anchor"></a>Session information</h1>
 <div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span>()</pre></body></html></div>
-<pre><code>## R Under development (unstable) (2020-04-27 r78308)
+<pre><code>## R Under development (unstable) (2020-05-09 r78394)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 14.04.5 LTS
 ## 
@@ -281,33 +285,33 @@ Reconstructed full spectrum.
 ## [8] methods   base     
 ## 
 ## other attached packages:
-##  [1] ggplot2_3.3.0       MSnbaseBoxCar_0.2.0 MSnbase_2.13.7     
-##  [4] ProtGenerics_1.19.3 S4Vectors_0.25.15   mzR_2.21.1         
-##  [7] Rcpp_1.0.4.6        Biobase_2.47.3      BiocGenerics_0.33.3
-## [10] BiocStyle_2.15.8   
+##  [1] ggplot2_3.3.0       MSnbaseBoxCar_0.2.0 MSnbase_2.15.1     
+##  [4] ProtGenerics_1.21.0 S4Vectors_0.27.5    mzR_2.23.0         
+##  [7] Rcpp_1.0.4.6        Biobase_2.49.0      BiocGenerics_0.35.2
+## [10] BiocStyle_2.17.0   
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] lattice_0.20-41       assertthat_0.2.1      rprojroot_1.3-2      
 ##  [4] digest_0.6.25         foreach_1.5.0         R6_2.4.1             
-##  [7] plyr_1.8.6            backports_1.1.6       mzID_1.25.0          
-## [10] evaluate_0.14         highr_0.8             pillar_1.4.3         
-## [13] zlibbioc_1.33.1       rlang_0.4.5           preprocessCore_1.49.2
+##  [7] plyr_1.8.6            backports_1.1.6       mzID_1.27.0          
+## [10] evaluate_0.14         highr_0.8             pillar_1.4.4         
+## [13] zlibbioc_1.35.0       rlang_0.4.6           preprocessCore_1.51.0
 ## [16] rmarkdown_2.1         pkgdown_1.5.1         desc_1.2.0           
-## [19] labeling_0.3          BiocParallel_1.21.3   stringr_1.4.0        
+## [19] labeling_0.3          BiocParallel_1.23.0   stringr_1.4.0        
 ## [22] munsell_0.5.0         compiler_4.1.0        xfun_0.13            
-## [25] pkgconfig_2.0.3       pcaMethods_1.79.1     htmltools_0.4.0      
+## [25] pkgconfig_2.0.3       pcaMethods_1.81.0     htmltools_0.4.0      
 ## [28] tidyselect_1.0.0      tibble_3.0.1          bookdown_0.18        
-## [31] IRanges_2.21.8        codetools_0.2-16      XML_3.99-0.3         
+## [31] IRanges_2.23.4        codetools_0.2-16      XML_3.99-0.3         
 ## [34] crayon_1.3.4          dplyr_0.8.5           withr_2.2.0          
 ## [37] MASS_7.3-51.6         grid_4.1.0            gtable_0.3.0         
-## [40] lifecycle_0.2.0       affy_1.65.1           magrittr_1.5         
+## [40] lifecycle_0.2.0       affy_1.67.0           magrittr_1.5         
 ## [43] scales_1.1.0          ncdf4_1.17            stringi_1.4.6        
-## [46] impute_1.61.0         farver_2.0.3          fs_1.4.1             
-## [49] affyio_1.57.0         doParallel_1.0.15     limma_3.43.8         
+## [46] impute_1.63.0         farver_2.0.3          fs_1.4.1             
+## [49] affyio_1.59.0         doParallel_1.0.15     limma_3.45.0         
 ## [52] ellipsis_0.3.0        vctrs_0.2.4           iterators_1.0.12     
 ## [55] tools_4.1.0           glue_1.4.0            purrr_0.3.4          
 ## [58] yaml_2.2.1            colorspace_1.4-1      BiocManager_1.30.10  
-## [61] vsn_3.55.0            MALDIquant_1.19.3     memoise_1.1.0        
+## [61] vsn_3.57.0            MALDIquant_1.19.3     memoise_1.1.0        
 ## [64] knitr_1.28</code></pre>
 </div>
   </div>
