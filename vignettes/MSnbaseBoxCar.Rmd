@@ -3,6 +3,14 @@ title: "A prototype to process BoxCar data with MSnbase"
 output:
     BiocStyle::html_document:
         toc_float: true
+
+package: MSnbaseBoxCar
+abstract: >
+  This package describes a simple prototype to process BoxCar 
+  data using the MSnbase package. Is is meant as an illustration 
+  of how to use `MSnbase` to prototype and develop computational 
+  mass spectrometry methods and not to replace the reference 
+  MaxQuant implementation.
 vignette: >
     %\VignetteIndexEntry{A prototype to process BoxCar data with MSnbase}
     %\VignetteEngine{knitr::rmarkdown}

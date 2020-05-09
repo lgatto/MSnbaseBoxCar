@@ -10,3 +10,13 @@ as an illustration of how to use `MSnbase` to prototype and develop
 computational mass spectrometry methods and not to replace the
 reference `MaxQuant` implementation.
 
+
+To install the package and its dependencies:
+
+```r
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("MSnbase")
+BiocManager::install("lgatto/MSnbaseBoxCar")
+```
